@@ -1,4 +1,4 @@
-# sp24-lab9
+# sp24-lab12
 Materials for week 12 lab in CS-370, which includes Ch. 23 "A File Viewer" adapted from [Software Design by Example](https://third-bit.com/sdxpy/) by Greg Wilson.
 
 _April 23, 2024_
