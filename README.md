@@ -86,6 +86,17 @@ Verify that you can scroll vertically through the text.
 * What are all the classes defined in this version of the file viewer application?
 * Taking the file viewer application as a whole, do you find the code easy or difficult to read and understand? Why or why not? You might consider Ousterhout's idea of "classitis."
 
-## Exercise 1: 
+## Exercise 1: Quitting the application
 
+In the file `dispatch_keys.py`, add a method to the `DispatchApp` class so that once again you can type `q` to quit the application.
 
+## Exercise 2: Horizontal scrolling
+
+Modify the application to scroll horizontally as well as vertically.
+
+Rather than creating yet another version of the app with 
+yet more child classes, you can modify the code in `viewport.py`
+
+## Exercise 3: Line numbers
+
+Modify the file viewer to show line numbers on the left side of the text.
