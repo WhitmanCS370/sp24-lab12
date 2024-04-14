@@ -100,3 +100,4 @@ yet more child classes, you can modify the code in `viewport.py`
 ## Exercise 3: Line numbers
 
 Modify the file viewer to show line numbers on the left side of the text.
+The line numbers should not move when scrolling horizontally.
