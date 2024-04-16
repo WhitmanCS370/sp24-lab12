@@ -6,6 +6,7 @@ from cursor_const import Window
 from dispatch_keys import DispatchApp
 from move_cursor import Cursor
 
+
 # [buffer]
 class Buffer:
     def __init__(self, lines):
@@ -13,7 +14,10 @@ class Buffer:
 
     def lines(self):
         return self._lines
+
+
 # [/buffer]
+
 
 # [app]
 class BufferApp(DispatchApp):
@@ -34,13 +38,15 @@ class BufferApp(DispatchApp):
 
     def _make_cursor(self):
         self._cursor = Cursor()
-# [/app]
+
+    # [/app]
 
     def _run(self):
         while self._running:
             self._window.draw(self._buffer.lines())
             self._screen.move(*self._cursor.pos())
             self._interact()
+
 
 if __name__ == "__main__":
     size, lines = start()

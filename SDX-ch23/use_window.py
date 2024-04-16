@@ -3,6 +3,7 @@ import sys
 
 from util import open_log, log, make_lines
 
+
 # [window]
 class Window:
     def __init__(self, screen):
@@ -10,10 +11,13 @@ class Window:
 
     def draw(self, lines):
         self._screen.erase()
-        for (y, line) in enumerate(lines):
+        for y, line in enumerate(lines):
             if 0 <= y < curses.LINES:
-                self._screen.addstr(y, 0, line[:curses.COLS])
+                self._screen.addstr(y, 0, line[: curses.COLS])
+
+
 # [/window]
+
 
 # [main]
 def main(stdscr, lines):
@@ -23,6 +27,8 @@ def main(stdscr, lines):
         key = stdscr.getkey()
         if key.lower() == "q":
             return
+
+
 # [/main]
 
 if __name__ == "__main__":

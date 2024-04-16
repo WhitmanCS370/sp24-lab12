@@ -4,6 +4,7 @@ import sys
 from util import COL, ROW, start
 from clip_cursor import ClipCursor, ClipApp
 
+
 # [cursor]
 class ClipCursorFixed(ClipCursor):
     def up(self):
@@ -15,14 +16,16 @@ class ClipCursorFixed(ClipCursor):
         self._fix()
 
     def _fix(self):
-        self._pos[COL] = min(
-            self._pos[COL],
-            (self._buffer.ncol(self._pos[ROW])-1))
+        self._pos[COL] = min(self._pos[COL], (self._buffer.ncol(self._pos[ROW]) - 1))
+
+
 # [/cursor]
+
 
 class ClipAppFixed(ClipApp):
     def _make_cursor(self):
         self._cursor = ClipCursorFixed(self._buffer)
+
 
 if __name__ == "__main__":
     size, lines = start()
