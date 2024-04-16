@@ -44,6 +44,9 @@ class DispatchApp(MainApp):
 
     def _do_KEY_RIGHT(self):
         self._cursor.right()
+    
+    def _do_q(self):
+        self._running = False
 
 if __name__ == "__main__":
     size, lines = start()
