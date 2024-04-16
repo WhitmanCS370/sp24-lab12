@@ -96,7 +96,9 @@ Run
     python3 viewport.py 50 logfile
 Verify that you can scroll vertically through the text.
 * What are all the classes defined in this version of the file viewer application?
+ViewportCursor, ViewportBuffer, ViewportApp
 * Taking the file viewer application as a whole, do you find the code easy or difficult to read and understand? Why or why not? You might consider Ousterhout's idea of "classitis."
+I found it harder to read and understand because of "classitis". Had to traceback classes and would lose my spot.
 
 ## Exercise 1: Quitting the application
 
