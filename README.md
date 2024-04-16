@@ -12,7 +12,7 @@ Clara Bates and Marlyn Estrada
 ## Team Roles for Part 1
 Who will start out as
 * DRIVER: Clara
-* NAVIGATOR: Marlyn
+* NAVIGATOR: Marlyn 
 
 You will switch halfway through this activity.
 
