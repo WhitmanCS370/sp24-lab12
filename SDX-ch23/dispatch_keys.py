@@ -19,7 +19,8 @@ class DispatchApp(MainApp):
 
     # [interact]
     TRANSLATE = {
-        "\x18": "CONTROL_X"
+        "\x18": "CONTROL_X",
+        "q": "CONTROL_X"
     }
 
     def _interact(self):
