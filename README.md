@@ -51,14 +51,17 @@ Try increasing the number of lines to 10 and verify you see ten lines of text.
 Then increasing the number of lines to 50 and verify the program crashes as described.
 
 * Why does `open_log` need the line `global LOG`? What happens if it is removed?
+To ensure it is accessible outside of the open_log function. And each time the function is called we're using the global variable, not creating more local variables
 * Why doesn’t the `log` function need this statement?
+When the log function is called there should already be a log opened and accessible in the global variable log.
 
 ### Section 2: Windowing
 Run
     python3 cursor_const.py 5 logfile
-    python3 cursor_const.py 50 logfile
+    q
 
 * This version should not crash. But can you see 50 lines of text? Why or why not?
+We can not move down in the window to see the rest.
 
 ### Section 3: Moving
 Run 
@@ -90,7 +93,7 @@ Verify that the cursor does not move outside the bounds of the text.
 ### Section 6: Viewport
 Run
     python3 viewport.py 50 logfile
-Verify that you can scroll vertically through the text.
+Verify that you can scroll vertically through the text.q
 * What are all the classes defined in this version of the file viewer application?
 * Taking the file viewer application as a whole, do you find the code easy or difficult to read and understand? Why or why not? You might consider Ousterhout's idea of "classitis."
 
@@ -101,6 +104,10 @@ In the file `dispatch_keys.py`, add a method to the `DispatchApp` class so that 
 ## Exercise 2: Horizontal scrolling
 
 Modify the application to scroll horizontally as well as vertically.
+
+Program seems to crash when reaching right limit of screen.
+Possible solution: make extra variable for keeping track of screen and cursor's horizontal position,
+make the text exceeding screen size not display, and dynamically shift display based on scrolling and screen size
 
 Rather than creating yet another version of the app with 
 yet more child classes, you can modify the code in `viewport.py`
