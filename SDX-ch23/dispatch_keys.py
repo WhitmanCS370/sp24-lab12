@@ -15,11 +15,13 @@ class DispatchApp(MainApp):
             self._window.draw(self._lines)
             self._screen.move(*self._cursor.pos())
             self._interact()
+            
 # [/main]
 
     # [interact]
     TRANSLATE = {
-        "\x18": "CONTROL_X"
+        "\x18": "CONTROL_X",
+        "\x71": "quit"
     }
 
     def _interact(self):
@@ -28,6 +30,9 @@ class DispatchApp(MainApp):
         name = f"_do_{key}"
         if hasattr(self, name):
             getattr(self, name)()
+        
+    def _do_quit(self):
+         self._running = False
 
     def _do_CONTROL_X(self):
         self._running = False

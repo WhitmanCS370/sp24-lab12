@@ -32,7 +32,9 @@ class ViewportBuffer(ClipBuffer):
     def __init__(self, lines):
         super().__init__(lines)
         self._top = 0
+        self._left = 3
         self._height = None
+        self._right = len(lines)
 
     def lines(self):
         return self._lines[self._top:self._top + self._height]
@@ -42,6 +44,9 @@ class ViewportBuffer(ClipBuffer):
 
     def _bottom(self):
         return self._top + self._height
+    def _width(self):
+        return self._left + self._right
+
 # [/buffer]
 
     # [transform]
@@ -53,11 +58,17 @@ class ViewportBuffer(ClipBuffer):
     # [scroll]
     def scroll(self, row, col):
         old = self._top
+        old_left = self._left
         if (row == self._top - 1) and self._top > 0:
             self._top -= 1
         elif (row == self._bottom()) and \
              (self._bottom() < self.nrow()):
             self._top += 1
+        if (col == self._left - 1) and self._left > 0:
+            self._left -= 1
+        elif (col == self._width()) and \
+             (self._width() < self.ncol()):
+            self._left += 1
     # [/scroll]
 
 # [app]
