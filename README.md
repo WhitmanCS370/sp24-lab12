@@ -7,12 +7,12 @@ Organization:
 * SDX-ch23: The code files for the _SDX Ch. 23_ activity (as downloaded directly from the book website, unmodified) 
 
 ## Team Members for Part 1
-Enter your names here
+Molly and Jas
 
 ## Team Roles for Part 1
 Who will start out as
-* DRIVER: Driver's name
-* NAVIGATOR: Navigator's name
+* DRIVER: Molly
+* NAVIGATOR: Jas
 
 You will switch halfway through this activity.
 
@@ -21,7 +21,10 @@ You will switch halfway through this activity.
 Write your answers to the questions below.
 
 * What were the main ideas from SDX chapter 23?
+Using the curses modules and handling interactions of different parts of  a system (screen size, key board input).
+
 * What questions did you have about the material in the chapters? What did you find confusing?
+We both found the section on refactoring to be a little confusing.
 
 ## Exercise 0: Run the code
 
