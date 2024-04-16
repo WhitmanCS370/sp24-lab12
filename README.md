@@ -56,6 +56,7 @@ Run
     python3 cursor_const.py 50 logfile
 
 * This version should not crash. But can you see 50 lines of text? Why or why not?
+We cannot see 50 lines of text since the window size isn't set up correctly.
 
 ### Section 3: Moving
 Run 
