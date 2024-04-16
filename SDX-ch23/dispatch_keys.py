@@ -9,6 +9,10 @@ class DispatchApp(MainApp):
     def __init__(self, size, lines):
         super().__init__(size, lines)
         self._running = True
+    def quit():
+        key = stdscr.getkey()
+        if key.lower() == "q":
+            return
 
     def _run(self):
         while self._running:
