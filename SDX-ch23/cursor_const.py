@@ -18,9 +18,12 @@ class Window:
     # [/omit]
     def draw(self, lines):
         self._screen.erase()
-        for (y, line) in enumerate(lines):
-            if 0 <= y < self._size[ROW]:
-                self._screen.addstr(y, 0, line[:self._size[COL]])
+        for (y, (num, line)) in enumerate(lines):
+            try:
+                if 0 <= y < self._size[ROW]:
+                    self._screen.addstr(y, 0, f"{num:>4}|{line[:self._size[COL]]}")
+            except:
+                continue
 # [/window]
 
 def main(stdscr, size, lines):
