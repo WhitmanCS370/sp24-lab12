@@ -15,6 +15,9 @@ class DispatchApp(MainApp):
             self._window.draw(self._lines)
             self._screen.move(*self._cursor.pos())
             self._interact()
+            key=self._screen.getkey()
+            if key.lower() == "q":
+                return
 # [/main]
 
     # [interact]
