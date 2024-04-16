@@ -46,7 +46,9 @@ Try increasing the number of lines to 10 and verify you see ten lines of text.
 Then increasing the number of lines to 50 and verify the program crashes as described.
 
 * Why does `open_log` need the line `global LOG`? What happens if it is removed?
+Modify global variable otherwise it will modify the local variable it creates.
 * Why doesn’t the `log` function need this statement?
+We want it to edit the global version of log, and it's passed a copy of the variable.
 
 ### Section 2: Windowing
 Run
