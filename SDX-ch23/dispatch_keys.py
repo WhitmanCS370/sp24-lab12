@@ -32,6 +32,9 @@ class DispatchApp(MainApp):
     def _do_CONTROL_X(self):
         self._running = False
 
+    def _do_q(self):
+        self._running = False
+
     def _do_KEY_UP(self):
         self._cursor.up()
     # [/interact]
