@@ -45,7 +45,11 @@ class DispatchApp(MainApp):
     def _do_KEY_RIGHT(self):
         self._cursor.right()
 
+    def _do_q(self):
+        self._running = False
+
 if __name__ == "__main__":
     size, lines = start()
     app = DispatchApp(size, lines)
     curses.wrapper(app)
+    print("Bye! Thanks for using our file viewer!  If you enjoyed your experience, buy the developers a coffee.  Venmo: Andrew-Tate-54, John-Leeds-8.")

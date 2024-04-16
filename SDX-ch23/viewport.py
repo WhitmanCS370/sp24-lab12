@@ -33,15 +33,23 @@ class ViewportBuffer(ClipBuffer):
         super().__init__(lines)
         self._top = 0
         self._height = None
+        self._left = 0
+        self._length = None
 
     def lines(self):
-        return self._lines[self._top:self._top + self._height]
+        return [line[self._left:self._left + self._length] for line in self._lines[self._top:self._top + self._height]]
 
     def set_height(self, height):
         self._height = height
 
+    def set_length(self, length):
+        self._length = length
+
     def _bottom(self):
         return self._top + self._height
+
+    def _right(self):
+        return self._left + self._length
 # [/buffer]
 
     # [transform]
@@ -52,12 +60,17 @@ class ViewportBuffer(ClipBuffer):
 
     # [scroll]
     def scroll(self, row, col):
-        old = self._top
         if (row == self._top - 1) and self._top > 0:
             self._top -= 1
         elif (row == self._bottom()) and \
              (self._bottom() < self.nrow()):
             self._top += 1
+
+        if (col == self._left - 1) and self._left > 0:
+            self._left -= 1
+        elif (col == self._right()) and \
+             (self._right() < self.ncol()):
+            self._left += 1
     # [/scroll]
 
 # [app]
@@ -70,6 +83,7 @@ class ViewportApp(ClipAppFixed):
 
     def _run(self):
         self._buffer.set_height(self._window.size()[ROW])
+        self._buffer.set_length(self._window.size()[COL])
         while self._running:
             self._window.draw(self._buffer.lines())
             screen_pos = self._buffer.transform(self._cursor.pos())
