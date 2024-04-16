@@ -25,6 +25,8 @@ class DispatchApp(MainApp):
     def _interact(self):
         key = self._screen.getkey()
         key = self.TRANSLATE.get(key, key)
+        if key == 'q':
+            self._running = False
         name = f"_do_{key}"
         if hasattr(self, name):
             getattr(self, name)()
