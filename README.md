@@ -73,9 +73,13 @@ and verify that it behaves exactly like the previous version
 - as it should, since it is only a refactoring. 
 
 * What are all the classes defined in this version of the file viewer application?
+Buffer and BufferApp
 * What are the factory methods?
+make_window(), make_buffer(), make_cursor()
+
 * Why do you think the author paused here to refactor before fixing the 
 bugs in the previous version of the code?
+We have classes that are doing too many things. For example, there is too much responsibility in main since it does stuff with window, move, curser. and key inputs. We want to refactor before implementing other things.
 
 ### Section 5: Clipping
 Run
@@ -83,7 +87,9 @@ Run
 Verify that the cursor does not move outside the bounds of the text.
 
 * However, there is another bug. What is it? (If necessary, use `CTRL-C` to interrupt the program.)
+I can scroll outside the dower bound of the text
 * What are all the classes defined in this version of the file viewer application?
+ClipCursorFixed, ClipAppFixed
 
 ### Section 6: Viewport
 Run
