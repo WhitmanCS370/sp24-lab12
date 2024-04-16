@@ -7,12 +7,13 @@ Organization:
 * SDX-ch23: The code files for the _SDX Ch. 23_ activity (as downloaded directly from the book website, unmodified) 
 
 ## Team Members for Part 1
-Enter your names here
+Luke Samuels
+Jack Allard
 
 ## Team Roles for Part 1
 Who will start out as
-* DRIVER: Driver's name
-* NAVIGATOR: Navigator's name
+* DRIVER: Luke  
+* NAVIGATOR: Jack
 
 You will switch halfway through this activity.
 
@@ -21,7 +22,13 @@ You will switch halfway through this activity.
 Write your answers to the questions below.
 
 * What were the main ideas from SDX chapter 23?
+
+Learning how to use curses, practicing handling errors/next steps one step at a time , different
+techniques for pagination/displaying large amounts of data
+
 * What questions did you have about the material in the chapters? What did you find confusing?
+
+We were confused about the implementation of the viewport buffer
 
 ## Exercise 0: Run the code
 
@@ -43,7 +50,12 @@ Try increasing the number of lines to 10 and verify you see ten lines of text.
 Then increasing the number of lines to 50 and verify the program crashes as described.
 
 * Why does `open_log` need the line `global LOG`? What happens if it is removed?
+
+Without it, the LOG is only in the scope of that file and the show_lines file cannot detect it.
+
 * Why doesn’t the `log` function need this statement?
+
+Because it is in the scope of the util file
 
 ### Section 2: Windowing
 Run
