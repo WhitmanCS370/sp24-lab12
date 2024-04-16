@@ -4,6 +4,7 @@ import sys
 from util import COL, ROW, start
 from main_app import MainApp
 
+
 # [main]
 class DispatchApp(MainApp):
     def __init__(self, size, lines):
@@ -15,12 +16,11 @@ class DispatchApp(MainApp):
             self._window.draw(self._lines)
             self._screen.move(*self._cursor.pos())
             self._interact()
-# [/main]
+
+    # [/main]
 
     # [interact]
-    TRANSLATE = {
-        "\x18": "CONTROL_X"
-    }
+    TRANSLATE = {"\x18": "CONTROL_X"}
 
     def _interact(self):
         key = self._screen.getkey()
@@ -34,6 +34,7 @@ class DispatchApp(MainApp):
 
     def _do_KEY_UP(self):
         self._cursor.up()
+
     # [/interact]
 
     def _do_KEY_DOWN(self):
@@ -44,6 +45,10 @@ class DispatchApp(MainApp):
 
     def _do_KEY_RIGHT(self):
         self._cursor.right()
+
+    def _do_q(self):
+        self._running = False
+
 
 if __name__ == "__main__":
     size, lines = start()

@@ -3,6 +3,7 @@ import sys
 
 from util import COL, ROW, start
 
+
 # [window]
 class Window:
     # [omit]
@@ -15,13 +16,17 @@ class Window:
 
     def size(self):
         return self._size
+
     # [/omit]
     def draw(self, lines):
         self._screen.erase()
-        for (y, line) in enumerate(lines):
+        for y, line in enumerate(lines):
             if 0 <= y < self._size[ROW]:
-                self._screen.addstr(y, 0, line[:self._size[COL]])
+                self._screen.addstr(y, 0, line[: self._size[COL]])
+
+
 # [/window]
+
 
 def main(stdscr, size, lines):
     window = Window(stdscr, size)
@@ -30,6 +35,7 @@ def main(stdscr, size, lines):
         key = stdscr.getkey()
         if key.lower() == "q":
             return
+
 
 if __name__ == "__main__":
     size, lines = start()

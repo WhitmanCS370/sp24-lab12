@@ -5,6 +5,7 @@ from util import ROW, COL, start
 from clip_cursor import ClipBuffer
 from clip_fixed import ClipCursorFixed, ClipAppFixed
 
+
 # [cursor]
 class ViewportCursor(ClipCursorFixed):
     def __init__(self, buffer, window):
@@ -25,7 +26,10 @@ class ViewportCursor(ClipCursorFixed):
             self._buffer.ncol(self._pos[ROW]) - 1,
             self._window.size()[COL] - 1
         )
+
+
 # [/cursor]
+
 
 # [buffer]
 class ViewportBuffer(ClipBuffer):
@@ -35,19 +39,26 @@ class ViewportBuffer(ClipBuffer):
         self._height = None
 
     def lines(self):
-        return self._lines[self._top:self._top + self._height]
+        line_numbers = range(self._top + 1, self._top + self._height + 1)
+        lines_with_numbers = [
+            f"{line_number:{len(str(self.nrow()))}} | {line}"
+            for line_number, line in zip(line_numbers, self._lines[self._top : self._top + self._height])
+        ]
+        return lines_with_numbers
 
     def set_height(self, height):
         self._height = height
 
     def _bottom(self):
         return self._top + self._height
-# [/buffer]
+
+    # [/buffer]
 
     # [transform]
     def transform(self, pos):
         result = (pos[ROW] - self._top, pos[COL])
         return result
+
     # [/transform]
 
     # [scroll]
@@ -55,10 +66,11 @@ class ViewportBuffer(ClipBuffer):
         old = self._top
         if (row == self._top - 1) and self._top > 0:
             self._top -= 1
-        elif (row == self._bottom()) and \
-             (self._bottom() < self.nrow()):
+        elif (row == self._bottom()) and (self._bottom() < self.nrow()):
             self._top += 1
+
     # [/scroll]
+
 
 # [app]
 class ViewportApp(ClipAppFixed):
@@ -76,6 +88,8 @@ class ViewportApp(ClipAppFixed):
             self._screen.move(*screen_pos)
             self._interact()
             self._buffer.scroll(*self._cursor.pos())
+
+
 # [/app]
 
 if __name__ == "__main__":

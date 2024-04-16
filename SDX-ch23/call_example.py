@@ -5,6 +5,7 @@ class Pretend:
     def __call__(self, value):
         return value + self._increment
 
+
 p = Pretend(3)
 result = p(10)
 print(result)
