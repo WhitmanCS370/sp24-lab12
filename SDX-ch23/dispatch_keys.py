@@ -13,6 +13,10 @@ class DispatchApp(MainApp):
         key = stdscr.getkey()
         if key.lower() == "q":
             return
+        
+
+
+        
 
     def _run(self):
         while self._running:
