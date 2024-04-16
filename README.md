@@ -7,12 +7,12 @@ Organization:
 * SDX-ch23: The code files for the _SDX Ch. 23_ activity (as downloaded directly from the book website, unmodified) 
 
 ## Team Members for Part 1
-Enter your names here
+Aidan VB, Steven L and Grant D
 
 ## Team Roles for Part 1
 Who will start out as
-* DRIVER: Driver's name
-* NAVIGATOR: Navigator's name
+* DRIVER: Grant
+* NAVIGATOR: Aidan, Steven
 
 You will switch halfway through this activity.
 
@@ -21,7 +21,15 @@ You will switch halfway through this activity.
 Write your answers to the questions below.
 
 * What were the main ideas from SDX chapter 23?
+
+Using the curses module, logging info such as keystrokes and how logging works on different levels, delayed construction and why that can be helpful (could be costly to initialize something that isn't used and is helpful to know how it will be used before initializing)
+
+Lastly, how to combine the concepts to make a robust file viewer
+
+
 * What questions did you have about the material in the chapters? What did you find confusing?
+
+We were confused at first about delayed construction but read more about it and understand its merits now._ 
 
 ## Exercise 0: Run the code
 
