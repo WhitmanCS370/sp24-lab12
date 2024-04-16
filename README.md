@@ -7,12 +7,12 @@ Organization:
 * SDX-ch23: The code files for the _SDX Ch. 23_ activity (as downloaded directly from the book website, unmodified) 
 
 ## Team Members for Part 1
-Enter your names here
+Terence and Rhys
 
 ## Team Roles for Part 1
 Who will start out as
-* DRIVER: Driver's name
-* NAVIGATOR: Navigator's name
+* DRIVER: Terence 
+* NAVIGATOR: Rhys
 
 You will switch halfway through this activity.
 
@@ -21,7 +21,9 @@ You will switch halfway through this activity.
 Write your answers to the questions below.
 
 * What were the main ideas from SDX chapter 23?
+- Building a Filer viewer. Testing functionality using synthetic data and complications of presentation of data and screen. 
 * What questions did you have about the material in the chapters? What did you find confusing?
+- We found the use of classes in this chapter confusing. There were too many classes and some were unnecessary. It was hard to follow because there was no visualization of the actual program and how it would look like. 
 
 ## Exercise 0: Run the code
 
@@ -43,7 +45,12 @@ Try increasing the number of lines to 10 and verify you see ten lines of text.
 Then increasing the number of lines to 50 and verify the program crashes as described.
 
 * Why does `open_log` need the line `global LOG`? What happens if it is removed?
+- running python3 show_lines.py 5 logfile does not change when using global LOG or not, but if we run it with python3 logging_curses.py logfile does change. show_lines will not long anything, but logging_curses logs keystrokes if we have global LOG. Without it, the window records keystrokes in the window (and diagonally) because the global LOG is referencing the global variabkle (defined above) and overriding it. Without this, LOG will lose the local instance and will not record the keystrokes. We think because file=None by default, this might just print to the window. 
+
+However, we do not know why this prints at an angle though. main calls log(repr(key)), which is a printable representation of the keystroke. Our best guess is; each keystroke is being written as if it was on the same line, but print() is printing a new line after every input. However, if this was true, adding end='' in the print statement should put it on one line, but it does not. It does print in the terminal (on one line), but not the window.
+
 * Why doesn’t the `log` function need this statement?
+Because LOG is a global variable, and log is not changing it. It can access it, but does not need to save any changes.s
 
 ### Section 2: Windowing
 Run
@@ -51,6 +58,7 @@ Run
     python3 cursor_const.py 50 logfile
 
 * This version should not crash. But can you see 50 lines of text? Why or why not?
+This will not crash, but it will not show all of the lines because we cannot scroll.
 
 ### Section 3: Moving
 Run 
@@ -77,6 +85,7 @@ Run
 Verify that the cursor does not move outside the bounds of the text.
 
 * However, there is another bug. What is it? (If necessary, use `CTRL-C` to interrupt the program.)
+You scroll up/down/left/right but if you scroll to the bottom, it will crash. This is not the case for scrolling paast the top.
 * What are all the classes defined in this version of the file viewer application?
 
 ### Section 6: Viewport
@@ -89,6 +98,15 @@ Verify that you can scroll vertically through the text.
 ## Exercise 1: Quitting the application
 
 In the file `dispatch_keys.py`, add a method to the `DispatchApp` class so that once again you can type `q` to quit the application.
+
+we added q to:
+
+TRANSLATE = {
+    "\x18": "CONTROL_X",
+    "q": "CONTROL_X"
+}
+
+This records the q keystroke and quits the program.
 
 ## Exercise 2: Horizontal scrolling
 
