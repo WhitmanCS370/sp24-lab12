@@ -21,7 +21,9 @@ You will switch halfway through this activity.
 Write your answers to the questions below.
 
 * What were the main ideas from SDX chapter 23?
+* Chapter 23 talks in detail about the individual processes that take place that allow us to view a file starting from curses and how they create the screen up to buffer, cursor, and window where we see the displayed information.
 * What questions did you have about the material in the chapters? What did you find confusing?
+* Everything was understandable pretty much. It took me a long time to read through it to understand what was going on but overall no questions.
 
 ## Exercise 0: Run the code
 
@@ -43,7 +45,9 @@ Try increasing the number of lines to 10 and verify you see ten lines of text.
 Then increasing the number of lines to 50 and verify the program crashes as described.
 
 * Why does `open_log` need the line `global LOG`? What happens if it is removed?
+* Because 'LOG' is global and it is being modified
 * Why doesn’t the `log` function need this statement?
+* It is not being modified
 
 ### Section 2: Windowing
 Run
@@ -51,6 +55,7 @@ Run
     python3 cursor_const.py 50 logfile
 
 * This version should not crash. But can you see 50 lines of text? Why or why not?
+* Maybe because there is no class that knows how big the screen is and only displays lines set by default screen size
 
 ### Section 3: Moving
 Run 
@@ -60,6 +65,8 @@ Verify that there is a cursor that moves along with the arrow keys,
 and you can move the cursor outside the bounds of the displayed text.
 If you move the cursor outside the window, the viewer will crash.
 
+* Done!
+
 ### Section 4: Refactoring
 Run 
     python3 buffer_class.py 10 logfile
@@ -67,6 +74,7 @@ and verify that it behaves exactly like the previous version
 - as it should, since it is only a refactoring. 
 
 * What are all the classes defined in this version of the file viewer application?
+* Buffer, DispatchApp, BufferApp
 * What are the factory methods?
 * Why do you think the author paused here to refactor before fixing the 
 bugs in the previous version of the code?
@@ -89,6 +97,8 @@ Verify that you can scroll vertically through the text.
 ## Exercise 1: Quitting the application
 
 In the file `dispatch_keys.py`, add a method to the `DispatchApp` class so that once again you can type `q` to quit the application.
+
+* Done!
 
 ## Exercise 2: Horizontal scrolling
 
