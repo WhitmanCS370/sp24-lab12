@@ -11,8 +11,8 @@ Enter your names here
 
 ## Team Roles for Part 1
 Who will start out as
-* DRIVER: Driver's name
-* NAVIGATOR: Navigator's name
+* DRIVER: Shahrom Dehoti
+* NAVIGATOR: Shahrom Dehoti
 
 You will switch halfway through this activity.
 
